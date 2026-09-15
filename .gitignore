@@ -1,0 +1,30 @@
+# Generated builds and release packages
+/dist/
+/bin/
+/obj/
+*.exe
+*.pdb
+*.zip
+
+# Local editor and agent state
+/.vs/
+/.vscode/
+/.idea/
+/.codex/
+/.agents/
+*.user
+*.suo
+
+# Local configuration, signing material, and runtime logs
+.env
+.env.*
+*.pfx
+*.p12
+*.key
+*.log
+/Sessions/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store

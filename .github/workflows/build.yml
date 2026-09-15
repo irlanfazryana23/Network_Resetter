@@ -1,0 +1,37 @@
+name: Windows build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: powershell
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Build portable package
+        run: .\build.ps1
+      - name: Verify files without launching the app
+        run: .\scripts\verify.ps1
+      - name: Upload build package
+        uses: actions/upload-artifact@v7
+        with:
+          name: network-resetter-windows
+          path: |
+            dist/NetworkResetter-*-portable.zip
+            dist/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 14
