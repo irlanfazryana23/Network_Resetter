@@ -17,7 +17,7 @@ Verification checks XAML, control references, PowerShell syntax, launcher path, 
 
 ## Runtime testing
 
-Do not run the app or network operations on the project owner's development device. Use an isolated Windows VM or another explicitly approved test device.
+Do not run the app or network operations on the development device. Use an isolated Windows VM or another explicitly approved test device.
 
 For relevant changes, check the affected repair mode, DHCP/manual-IP behavior, error reporting, cancellation, and restart handling. UI changes should also be checked for keyboard navigation and display scaling.
 
